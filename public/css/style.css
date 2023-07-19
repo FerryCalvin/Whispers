@@ -1,0 +1,26 @@
+.post {
+    /* Tambahkan gaya yang diperlukan untuk tampilan postingan */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.post-media {
+    max-width: 100%; /* Lebar maksimum media adalah 100% dari kontainer */
+    height: auto; /* Biarkan tinggi media menyesuaikan agar tidak terdistorsi */
+}
+
+/* Atur ukuran font dan jarak antar elemen pada postingan */
+.post-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-content {
+    margin-bottom: 10px;
+}
+
+.post-options {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

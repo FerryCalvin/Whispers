@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthManager;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/home', function () {
+    return view('home');
 })->name('home');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::post('/post', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
@@ -28,4 +38,9 @@ Route::group(['middleware' => 'auth'], function(){
         return "HI!";
     });
 });
+
+Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
+
+Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
